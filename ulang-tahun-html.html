@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #663399;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .cake {
+            font-size: 100px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .balloon {
+            font-size: 100px;
+            position: absolute;
+            animation: float 15s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(-50%); }
+            100% { transform: translateY(-100px) translateX(50%); }
+        }
+        .photo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+        .message {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Selamat Ulang Tahun</h1>
+        <h1>Raden Eva N K</h1>
+        <img src="https://pbs.twimg.com/profile_images/1820873434215411713/bGw8Wxy-_400x400.jpg" alt="Foto Ulang Tahun" class="photo">
+        <div class="cake">🎂</div>
+     
+        <p class="message">"Semoga di usia barumu ini, kamu selalu diberkahi kebahagiaan, kesehatan, dan kesuksesan. Amin :)"</p>
+    </div>
+    <script>
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            // Array berisi emoji balon dengan berbagai warna
+            const balloons = ['🔴', '🟠', '🟡', '🟢', '🔵', '🟣'];
+            // Pilih balon secara acak dari array
+            balloon.textContent = balloons[Math.floor(Math.random() * balloons.length)];
+            balloon.style.left = Math.random() * 100 + 'vw';
+            balloon.style.animationDuration = Math.random() * 10 + 5 + 's';
+            document.body.appendChild(balloon);
+            setTimeout(() => {
+                balloon.remove();
+            }, 20000);
+        }
+        setInterval(createBalloon, 1000);
+    </script>
+</body>
+</html>
